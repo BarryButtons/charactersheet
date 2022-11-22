@@ -1,8 +1,13 @@
+import controllers.characterAPI
+import models.Sheet
 import mu.KotlinLogging
 import utils.ScannerInput
+import utils.ScannerInput.readNextInt
+import utils.ScannerInput.readNextLine
 import java.lang.System.exit
 
 private val logger = KotlinLogging.logger {}
+private val characterAPI= characterAPI()
 
 fun main(args: Array<String>) {
     runMenu()
@@ -39,8 +44,27 @@ fun runMenu() {
 }
 
 fun addCharacter(){
-    logger.info { "Create a Characters"}
+    //logger.info { "Create a Characters"}
+    val characterName = readNextLine("Character Name:")
+    val characterRace = readNextLine("Choose Character Race:")
+    val characterClass = readNextLine("Choose Character Class:")
+    val characterLevel = readNextInt("Enter Character Level 1-20:")
+    val strength = readNextInt("Enter Character Strength 1-20:")
+    val dexterity = readNextInt("Enter Character Dexterity 1-20:")
+    val constitution = readNextInt("Enter Character Constitution 1-20:")
+    val intelligence =  readNextInt("Enter Character Intelligence 1-20:")
+    val wisdom = readNextInt("Enter Character Wisdom 1-20:")
+    val charisma = readNextInt("Enter Character Charisma 1-20:")
+
+    val isAdded = characterAPI.add(Sheet(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))
+
+    if (isAdded) {
+        println("Added Successfully")
+    } else {
+        println("Add Failed")
+    }
 }
+
 
 fun listCharacters(){
     logger.info { "View Characters" }
