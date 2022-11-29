@@ -44,6 +44,12 @@ class characterAPI {
         return false
     }
 
+    fun deleteCharacter(indexToDelete: Int): Sheet? {
+        return if (isValidListIndex(indexToDelete, sheets)) {
+            sheets.removeAt(indexToDelete)
+        } else null
+    }
+
     fun numberOfCharacters(): Int = sheets.size
 
 
