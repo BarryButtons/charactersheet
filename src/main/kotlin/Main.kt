@@ -16,9 +16,9 @@ fun main(args: Array<String>) {
 fun mainMenu() : Int {
     return ScannerInput.readNextInt(""" 
          > ----------------------------------
-         > |        NOTE KEEPER APP         |
+         > |       Character Creator        |
          > ----------------------------------
-         > | NOTE MENU                      |
+         > | MENU                           |
          > |   1) Create Character          |
          > |   2) View Characters           |
          > |   3) Update a Character        |
@@ -67,8 +67,26 @@ fun addCharacter(){
 
 
 fun listCharacters(){
-    logger.info { "View Characters" }
+    //logger.info { "View Characters" }
+    if (characterAPI.numberOfCharacters() > 0) {
+        val option = readNextInt(
+            """
+                  > --------------------------------
+                  > |   1) View ALL notes          |
+                  > --------------------------------
+         > ==>> """.trimMargin(">"))
+
+        when (option) {
+            1 -> listAllSheets();
+            //2 -> ;
+            //3 -> ;
+            else -> println("Invalid option entered: " + option);
+        }
+    } else {
+        println("Option Invalid - No notes stored");
+    }
 }
+
 
 fun updateCharacter(){
     logger.info { "Update a Character" }
@@ -81,4 +99,9 @@ fun deleteCharacter(){
 fun exitApp(){
     logger.info { "exitApp() function invoked" }
     exit(0)
+}
+
+
+fun listAllSheets() {
+    println(characterAPI.listAllSheets())
 }

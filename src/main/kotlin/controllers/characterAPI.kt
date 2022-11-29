@@ -20,5 +20,7 @@ class characterAPI {
             listOfSheets
         }
     }
-}
 
+    fun numberOfCharacters(): Int = sheets.size
+
+}
