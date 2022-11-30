@@ -20,7 +20,7 @@ fun mainMenu() : Int {
          > ----------------------------------
          > \       Character Creator        /
          > ----------------------------------
-         > | MENU                           |
+         > |            MENU                |
          > |   1) Create Character          |
          > |   2) View Characters           |
          > |   3) Update a Character        |
@@ -74,7 +74,7 @@ fun listCharacters(){
         val option = readNextInt(
             """
                   > --------------------------------
-                  > |   1) View ALL notes          |
+                  > |   1) View ALL Characters          |
                   > --------------------------------
          > ==>> """.trimMargin(">"))
 
@@ -85,7 +85,7 @@ fun listCharacters(){
             else -> println("Invalid option entered: " + option);
         }
     } else {
-        println("Option Invalid - No notes stored");
+        println("Option Invalid - NO Characters");
     }
 }
 
