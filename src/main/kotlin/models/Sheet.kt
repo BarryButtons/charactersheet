@@ -1,13 +1,14 @@
 package models
 
-data class Sheet (val characterName: String,
-                  val characterRace: String,
-                  val characterClass: String,
-                  val characterLevel: Int,
-                  val strength: Int,
-                  val dexterity: Int,
-                  val constitution: Int,
-                  val intelligence: Int,
-                  val wisdom: Int,
-                  val charisma: Int
+data class Sheet (
+    var characterName: String,
+    var characterRace: String,
+    var characterClass: String,
+    var characterLevel: Int,
+    var strength: Int,
+    var dexterity: Int,
+    var constitution: Int,
+    var intelligence: Int,
+    var wisdom: Int,
+    var charisma: Int
 )
