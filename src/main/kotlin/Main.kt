@@ -1,11 +1,13 @@
 import controllers.characterAPI
 import models.Sheet
 import mu.KotlinLogging
+import util.CategoryUtility
 import utils.ScannerInput
 import utils.ScannerInput.readNextInt
 import utils.ScannerInput.readNextLine
+import util.ValidateInput.readValidCategory
 import java.lang.System.exit
-import models.Sheet as Sh
+
 
 private val logger = KotlinLogging.logger {}
 private val characterAPI= characterAPI()
@@ -18,16 +20,15 @@ fun mainMenu() : Int {
 
     return ScannerInput.readNextInt(""" 
          > ----------------------------------
-         > \       Character Creator        /
-         > ----------------------------------
-         > |            MENU                |
-         > |   1) Create Character          |
-         > |   2) View Characters           |
-         > |   3) Update a Character        |
-         > |   4) Delete a Character        |
-         > ----------------------------------
-         > |   0) Exit                      |
-         > ----------------------------------
+         > \                       Character Creator (No of Characters here)                               /
+         > /                                                                                               \
+         > -------------------------------------------------------------------------------------------------
+         > \                                          MENU                                                 /
+         > /      1)Create Character   2)View Characters   3)Update a Character   4)Delete a Character     \
+         > \                                                                                               / 
+         > --------------------------------------------------------------------------------------------------
+         > |   0) Exit                                                                                      |
+         > --------------------------------------------------------------------------------------------------
          > ==>> """.trimMargin(">"))
 }
 
@@ -48,7 +49,7 @@ fun runMenu() {
 fun addCharacter(){
     //logger.info { "Create a Characters"}
     val characterName = readNextLine("Character Name:")
-    val characterRace = readNextLine("Choose Character Race:")
+    val characterRace = readValidCategory("Choose Character Race from ${CategoryUtility.categories}:")
     val characterClass = readNextLine("Choose Character Class:")
     val characterLevel = readNextInt("Enter Character Level 1-20:")
     val strength = readNextInt("Enter Character Strength 1-20:")
@@ -58,7 +59,7 @@ fun addCharacter(){
     val wisdom = readNextInt("Enter Character Wisdom 1-20:")
     val charisma = readNextInt("Enter Character Charisma 1-20:")
 
-    val isAdded = characterAPI.add(Sh(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))
+    val isAdded = characterAPI.add(Sheet(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))
 
     if (isAdded) {
         println("Added Successfully")
