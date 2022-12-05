@@ -12,3 +12,5 @@ data class Sheet (
     var wisdom: Int,
     var charisma: Int
 )
+
+//is character dead

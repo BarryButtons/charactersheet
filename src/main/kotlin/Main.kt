@@ -1,11 +1,15 @@
 import controllers.characterAPI
 import models.Sheet
 import mu.KotlinLogging
+import util.CategoryUtility
+import util.ValidateInput.readValidClass
+import util.ValidateInput.readValidNumber
 import utils.ScannerInput
 import utils.ScannerInput.readNextInt
 import utils.ScannerInput.readNextLine
+import util.ValidateInput.readValidRace
 import java.lang.System.exit
-import models.Sheet as Sh
+
 
 private val logger = KotlinLogging.logger {}
 private val characterAPI= characterAPI()
@@ -18,16 +22,15 @@ fun mainMenu() : Int {
 
     return ScannerInput.readNextInt(""" 
          > ----------------------------------
-         > \       Character Creator        /
-         > ----------------------------------
-         > |            MENU                |
-         > |   1) Create Character          |
-         > |   2) View Characters           |
-         > |   3) Update a Character        |
-         > |   4) Delete a Character        |
-         > ----------------------------------
-         > |   0) Exit                      |
-         > ----------------------------------
+         > \                       Character Creator (No of Characters here)                               /
+         > /                                                                                               \
+         > -------------------------------------------------------------------------------------------------
+         > \                                          MENU                                                 /
+         > /      1)Create Character   2)View Characters   3)Update a Character   4)Delete a Character     \
+         > \                                                                                               / 
+         > --------------------------------------------------------------------------------------------------
+         > |   0) Exit                                                                                      |
+         > --------------------------------------------------------------------------------------------------
          > ==>> """.trimMargin(">"))
 }
 
@@ -48,17 +51,17 @@ fun runMenu() {
 fun addCharacter(){
     //logger.info { "Create a Characters"}
     val characterName = readNextLine("Character Name:")
-    val characterRace = readNextLine("Choose Character Race:")
-    val characterClass = readNextLine("Choose Character Class:")
-    val characterLevel = readNextInt("Enter Character Level 1-20:")
-    val strength = readNextInt("Enter Character Strength 1-20:")
-    val dexterity = readNextInt("Enter Character Dexterity 1-20:")
-    val constitution = readNextInt("Enter Character Constitution 1-20:")
-    val intelligence =  readNextInt("Enter Character Intelligence 1-20:")
-    val wisdom = readNextInt("Enter Character Wisdom 1-20:")
-    val charisma = readNextInt("Enter Character Charisma 1-20:")
+    val characterRace = readValidRace("Choose Character Race from ${CategoryUtility.races}:")
+    val characterClass = readValidClass("Choose Character Class ${CategoryUtility.classes}:")
+    val characterLevel = readValidNumber("Enter Character Level 1-20:")
+    val strength = readValidNumber("Enter Character Strength 1-20:")
+    val dexterity = readValidNumber("Enter Character Dexterity 1-20:")
+    val constitution = readValidNumber("Enter Character Constitution 1-20:")
+    val intelligence =  readValidNumber("Enter Character Intelligence 1-20:")
+    val wisdom = readValidNumber("Enter Character Wisdom 1-20:")
+    val charisma = readValidNumber("Enter Character Charisma 1-20:")
 
-    val isAdded = characterAPI.add(Sh(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))
+    val isAdded = characterAPI.add(Sheet(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))
 
     if (isAdded) {
         println("Added Successfully")
@@ -98,15 +101,15 @@ fun updateCharacter(){
         val indexToUpdate = readNextInt("Enter the index of the note to update: ")
         if (characterAPI.isValidIndex(indexToUpdate)) {
             val characterName = readNextLine("Character Name:")
-            val characterRace = readNextLine("Choose Character Race:")
-            val characterClass = readNextLine("Choose Character Class:")
-            val characterLevel = readNextInt("Enter Character Level 1-20:")
-            val strength = readNextInt("Enter Character Strength 1-20:")
-            val dexterity = readNextInt("Enter Character Dexterity 1-20:")
-            val constitution = readNextInt("Enter Character Constitution 1-20:")
-            val intelligence =  readNextInt("Enter Character Intelligence 1-20:")
-            val wisdom = readNextInt("Enter Character Wisdom 1-20:")
-            val charisma = readNextInt("Enter Character Charisma 1-20:")
+            val characterRace = readValidRace("Choose Character Race from ${CategoryUtility.races}:")
+            val characterClass = readValidClass("Choose Character Class ${CategoryUtility.classes}:")
+            val characterLevel = readValidNumber("Enter Character Level 1-20:")
+            val strength = readValidNumber("Enter Character Strength 1-20:")
+            val dexterity = readValidNumber("Enter Character Dexterity 1-20:")
+            val constitution = readValidNumber("Enter Character Constitution 1-20:")
+            val intelligence =  readValidNumber("Enter Character Intelligence 1-20:")
+            val wisdom = readValidNumber("Enter Character Wisdom 1-20:")
+            val charisma = readValidNumber("Enter Character Charisma 1-20:")
 
             //pass the index of the note and the new note details to NoteAPI for updating and check for success.
             if (characterAPI.updateCharacter(indexToUpdate,Sheet(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))){
