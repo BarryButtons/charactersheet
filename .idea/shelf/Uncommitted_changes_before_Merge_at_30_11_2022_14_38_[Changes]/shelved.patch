@@ -1,0 +1,221 @@
+Index: src/main/kotlin/Main.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import controllers.characterAPI\r\nimport models.Sheet\r\nimport mu.KotlinLogging\r\nimport utils.ScannerInput\r\nimport utils.ScannerInput.readNextInt\r\nimport utils.ScannerInput.readNextLine\r\nimport java.lang.System.exit\r\n\r\nprivate val logger = KotlinLogging.logger {}\r\nprivate val characterAPI= characterAPI()\r\n\r\nfun main(args: Array<String>) {\r\n    runMenu()\r\n}\r\n\r\nfun mainMenu() : Int {\r\n    return ScannerInput.readNextInt(\"\"\" \r\n         > ----------------------------------\r\n         > |        NOTE KEEPER APP         |\r\n         > ----------------------------------\r\n         > | NOTE MENU                      |\r\n         > |   1) Create Character          |\r\n         > |   2) View Characters           |\r\n         > |   3) Update a Character        |\r\n         > |   4) Delete a Character        |\r\n         > ----------------------------------\r\n         > |   0) Exit                      |\r\n         > ----------------------------------\r\n         > ==>> \"\"\".trimMargin(\">\"))\r\n}\r\n\r\nfun runMenu() {\r\n    do {\r\n        val option = mainMenu()\r\n        when (option) {\r\n            1  -> addCharacter()\r\n            2  -> listCharacters()\r\n            3  -> updateCharacter()\r\n            4  -> deleteCharacter()\r\n            0  -> exitApp()\r\n            else -> println(\"Invalid option entered: ${option}\")\r\n        }\r\n    } while (true)\r\n}\r\n\r\nfun addCharacter(){\r\n    //logger.info { \"Create a Characters\"}\r\n    val characterName = readNextLine(\"Character Name:\")\r\n    val characterRace = readNextLine(\"Choose Character Race:\")\r\n    val characterClass = readNextLine(\"Choose Character Class:\")\r\n    val characterLevel = readNextInt(\"Enter Character Level 1-20:\")\r\n    val strength = readNextInt(\"Enter Character Strength 1-20:\")\r\n    val dexterity = readNextInt(\"Enter Character Dexterity 1-20:\")\r\n    val constitution = readNextInt(\"Enter Character Constitution 1-20:\")\r\n    val intelligence =  readNextInt(\"Enter Character Intelligence 1-20:\")\r\n    val wisdom = readNextInt(\"Enter Character Wisdom 1-20:\")\r\n    val charisma = readNextInt(\"Enter Character Charisma 1-20:\")\r\n\r\n    val isAdded = characterAPI.add(Sheet(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))\r\n\r\n    if (isAdded) {\r\n        println(\"Added Successfully\")\r\n    } else {\r\n        println(\"Add Failed\")\r\n    }\r\n}\r\n\r\n\r\nfun listCharacters(){\r\n    logger.info { \"View Characters\" }\r\n}\r\n\r\nfun updateCharacter(){\r\n    logger.info { \"Update a Character\" }\r\n}\r\n\r\nfun deleteCharacter(){\r\n    logger.info { \"Delete a Character\" }\r\n}\r\n\r\nfun exitApp(){\r\n    logger.info { \"exitApp() function invoked\" }\r\n    exit(0)\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/Main.kt b/src/main/kotlin/Main.kt
+--- a/src/main/kotlin/Main.kt	(revision 79b99cbe4eab53c3266749bf27774833dbda3176)
++++ b/src/main/kotlin/Main.kt	(date 1669819070792)
+@@ -5,6 +5,7 @@
+ import utils.ScannerInput.readNextInt
+ import utils.ScannerInput.readNextLine
+ import java.lang.System.exit
++import models.Sheet as Sh
+ 
+ private val logger = KotlinLogging.logger {}
+ private val characterAPI= characterAPI()
+@@ -14,11 +15,12 @@
+ }
+ 
+ fun mainMenu() : Int {
++
+     return ScannerInput.readNextInt(""" 
+          > ----------------------------------
+-         > |        NOTE KEEPER APP         |
++         > \       Character Creator        /
+          > ----------------------------------
+-         > | NOTE MENU                      |
++         > | MENU                           |
+          > |   1) Create Character          |
+          > |   2) View Characters           |
+          > |   3) Update a Character        |
+@@ -56,7 +58,7 @@
+     val wisdom = readNextInt("Enter Character Wisdom 1-20:")
+     val charisma = readNextInt("Enter Character Charisma 1-20:")
+ 
+-    val isAdded = characterAPI.add(Sheet(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))
++    val isAdded = characterAPI.add(Sh(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))
+ 
+     if (isAdded) {
+         println("Added Successfully")
+@@ -67,18 +69,80 @@
+ 
+ 
+ fun listCharacters(){
+-    logger.info { "View Characters" }
++    //logger.info { "View Characters" }
++    if (characterAPI.numberOfCharacters() > 0) {
++        val option = readNextInt(
++            """
++                  > --------------------------------
++                  > |   1) View ALL notes          |
++                  > --------------------------------
++         > ==>> """.trimMargin(">"))
++
++        when (option) {
++            1 -> listAllSheets();
++            //2 -> ;
++            //3 -> ;
++            else -> println("Invalid option entered: " + option);
++        }
++    } else {
++        println("Option Invalid - No notes stored");
++    }
+ }
++
+ 
+ fun updateCharacter(){
+-    logger.info { "Update a Character" }
++    //logger.info { "Update a Character" }
++    listCharacters()
++    if (characterAPI.numberOfCharacters() > 0) {
++        //only ask the user to choose the note if notes exist
++        val indexToUpdate = readNextInt("Enter the index of the note to update: ")
++        if (characterAPI.isValidIndex(indexToUpdate)) {
++            val characterName = readNextLine("Character Name:")
++            val characterRace = readNextLine("Choose Character Race:")
++            val characterClass = readNextLine("Choose Character Class:")
++            val characterLevel = readNextInt("Enter Character Level 1-20:")
++            val strength = readNextInt("Enter Character Strength 1-20:")
++            val dexterity = readNextInt("Enter Character Dexterity 1-20:")
++            val constitution = readNextInt("Enter Character Constitution 1-20:")
++            val intelligence =  readNextInt("Enter Character Intelligence 1-20:")
++            val wisdom = readNextInt("Enter Character Wisdom 1-20:")
++            val charisma = readNextInt("Enter Character Charisma 1-20:")
++
++            //pass the index of the note and the new note details to NoteAPI for updating and check for success.
++            if (characterAPI.updateCharacter(indexToUpdate,Sheet(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))){
++                println("Update Successful")
++            } else {
++                println("Update Failed")
++            }
++        } else {
++            println("There are no notes for this index number")
++        }
++    }
+ }
+ 
+ fun deleteCharacter(){
+-    logger.info { "Delete a Character" }
++    //logger.info { "Delete a Character" }
++
++    listCharacters()
++    if (characterAPI.numberOfCharacters() > 0) {
++        //only ask the user to choose the note to delete if notes exist
++        val indexToDelete = readNextInt("Enter the index of the character to delete: ")
++        //pass the index of the note to NoteAPI for deleting and check for success.
++        val characterToDelete = characterAPI.deleteCharacter(indexToDelete)
++        if (characterToDelete != null) {
++            println("Delete Successful! Deleted note: ${characterToDelete.characterName}")
++        } else {
++            println("Delete NOT Successful")
++        }
++    }
+ }
+ 
+ fun exitApp(){
+     logger.info { "exitApp() function invoked" }
+     exit(0)
+ }
++
++
++fun listAllSheets() {
++    println(characterAPI.listAllSheets())
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"caf4d729-0cd5-472f-9052-522f925f86d9\" name=\"Changes\" comment=\"Add CRUD on Character\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/controllers/characterAPI.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/models/Sheet.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/gradle.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/gradle.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/Main.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/Main.kt\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Kotlin Object\" />\r\n        <option value=\"Kotlin Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2HdVB5W6qsKCqrjrEDl5xmwUTQQ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/20088160/Desktop/Year4/Software/notes-app-1.0\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"caf4d729-0cd5-472f-9052-522f925f86d9\" name=\"Changes\" comment=\"\" />\r\n      <created>1668614813553</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1668614813553</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Add CRUD on Character\">\r\n      <created>1668615495395</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668615495395</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Add CRUD on Character\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Add CRUD on Character\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 79b99cbe4eab53c3266749bf27774833dbda3176)
++++ b/.idea/workspace.xml	(date 1669819071318)
+@@ -4,12 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Add CRUD on Character">
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controllers/characterAPI.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/models/Sheet.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Add update character">
+       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controllers/characterAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controllers/characterAPI.kt" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -25,14 +22,13 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Kotlin Object" />
+-        <option value="Kotlin Class" />
+       </list>
+     </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="list/view_character_sheets" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -51,7 +47,7 @@
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "last_opened_file_path": "C:/Users/20088160/Desktop/Year4/Software/notes-app-1.0"
++    "last_opened_file_path": "C:/Users/20088160/Desktop/Year4/Software/charactersheet"
+   }
+ }]]></component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+@@ -63,14 +59,28 @@
+       <option name="presentableId" value="Default" />
+       <updated>1668614813553</updated>
+     </task>
+-    <task id="LOCAL-00001" summary="Add CRUD on Character">
+-      <created>1668615495395</created>
++    <task id="LOCAL-00001" summary="Add view character">
++      <created>1669747552558</created>
+       <option name="number" value="00001" />
+       <option name="presentableId" value="LOCAL-00001" />
+       <option name="project" value="LOCAL" />
+-      <updated>1668615495395</updated>
++      <updated>1669747552558</updated>
++    </task>
++    <task id="LOCAL-00002" summary="Add update character">
++      <created>1669750206340</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1669750206340</updated>
++    </task>
++    <task id="LOCAL-00003" summary="Add update character">
++      <created>1669750266386</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1669750266386</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -85,7 +95,8 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Add CRUD on Character" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Add CRUD on Character" />
++    <MESSAGE value="Add view character" />
++    <MESSAGE value="Add update character" />
++    <option name="LAST_COMMIT_MESSAGE" value="Add update character" />
+   </component>
+ </project>
+\ No newline at end of file

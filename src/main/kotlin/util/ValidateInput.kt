@@ -37,7 +37,7 @@ object ValidateInput {
     fun readValidNumber(prompt: String?): Int {
         var input =  readNextInt(prompt)
         do {
-            if (Utilities.validRange(input, 1, 5))//needs to be changed to 20
+            if (Utilities.validRange(input, 1, 20))//needs to be changed to 20
                 return input
             else {
                 print("Invalid entry $input.")
