@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Add validation for &quot;Races&quot;">
+    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="add validation to Update">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_11_2022_14_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_11_2022_14_37__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2022_14_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2022_14_38__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/util/CategoryUtility.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/util/CategoryUtility.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/util/ValidateInput.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/util/ValidateInput.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +23,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Object" />
       </list>
     </option>
@@ -91,21 +89,7 @@
       <option name="project" value="LOCAL" />
       <updated>1669819244782</updated>
     </task>
-    <task id="LOCAL-00005" summary="Add to ReadME">
-      <created>1669821239847</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1669821239847</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Add validation for &quot;Races&quot;">
-      <created>1670265654279</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1670265654279</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,7 +97,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -123,8 +119,6 @@
     <MESSAGE value="Add view character" />
     <MESSAGE value="Add update character" />
     <MESSAGE value="Create CRUD" />
-    <MESSAGE value="Add to ReadME" />
-    <MESSAGE value="Add validation for &quot;Races&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add validation for &quot;Races&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create CRUD" />
   </component>
 </project>

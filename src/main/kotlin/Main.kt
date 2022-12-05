@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
 fun mainMenu() : Int {
 
     return ScannerInput.readNextInt(""" 
-         > ----------------------------------
+         > -------------------------------------------------------------------------------------------------
          > \                       Character Creator (No of Characters here)                               /
          > /                                                                                               \
          > -------------------------------------------------------------------------------------------------
@@ -76,9 +76,9 @@ fun listCharacters(){
     if (characterAPI.numberOfCharacters() > 0) {
         val option = readNextInt(
             """
-                  > --------------------------------
-                  > |   1) View ALL Characters          |
-                  > --------------------------------
+                  > --------------------------------------------------------
+                  > |   1) View ALL Characters  2) Display Character Sheet |
+                  > --------------------------------------------------------
          > ==>> """.trimMargin(">"))
 
         when (option) {
