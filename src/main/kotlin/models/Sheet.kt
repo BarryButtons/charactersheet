@@ -14,3 +14,17 @@ data class Sheet (
 )
 
 //is character dead
+
+
+/*fun getCharacterSheet(): String {
+   """
+    __________________________________________________________________________
+                                 ${characterName}                             |
+    |________________________________________________________________________|
+    |            Class:${characterClass}            Race:${characterRace}       Level:${characterLevel}            |
+    |________________________________________________________________________|
+    |                              Attributes                                |
+    |     STR:${strength}     DEX:${dexterity}     CON:${constitution}     INT:${intelligence}     WIS:${wisdom}      CHAR:${charisma}     |
+    |________________________________________________________________________|
+"""
+}*/

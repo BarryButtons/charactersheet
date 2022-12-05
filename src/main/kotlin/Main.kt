@@ -83,7 +83,49 @@ fun listCharacters(){
 
         when (option) {
             1 -> listAllSheets();
-            //2 -> ;
+            //2 -> getCharacterSheet();
+            //3 -> ;
+            else -> println("Invalid option entered: " + option);
+        }
+    } else {
+        println("Option Invalid - NO Characters");
+    }
+}
+
+fun listCharacterupdate(){
+    //logger.info { "View Characters" }
+    if (characterAPI.numberOfCharacters() > 0) {
+        val option = readNextInt(
+            """
+                  > --------------------------------------------------------
+                  > |   1) View ALL Characters
+                  > --------------------------------------------------------
+         > ==>> """.trimMargin(">"))
+
+        when (option) {
+            1 -> listAllSheets();
+            //2 -> getCharacterSheet();
+            //3 -> ;
+            else -> println("Invalid option entered: " + option);
+        }
+    } else {
+        println("Option Invalid - NO Characters");
+    }
+}
+
+fun listCharactersdelete(){
+    //logger.info { "View Characters" }
+    if (characterAPI.numberOfCharacters() > 0) {
+        val option = readNextInt(
+            """
+                  > --------------------------------------------------------
+                  > |   1) View ALL Characters  
+                  > --------------------------------------------------------
+         > ==>> """.trimMargin(">"))
+
+        when (option) {
+            1 -> listAllSheets();
+            //2 -> getCharacterSheet();
             //3 -> ;
             else -> println("Invalid option entered: " + option);
         }
@@ -93,12 +135,13 @@ fun listCharacters(){
 }
 
 
+
 fun updateCharacter(){
     //logger.info { "Update a Character" }
-    listCharacters()
+    listCharacterupdate()
     if (characterAPI.numberOfCharacters() > 0) {
         //only ask the user to choose the note if notes exist
-        val indexToUpdate = readNextInt("Enter the index of the note to update: ")
+        val indexToUpdate = readNextInt("Enter the index of the Character to update: ")
         if (characterAPI.isValidIndex(indexToUpdate)) {
             val characterName = readNextLine("Character Name:")
             val characterRace = readValidRace("Choose Character Race from ${CategoryUtility.races}:")
@@ -126,7 +169,7 @@ fun updateCharacter(){
 fun deleteCharacter(){
     //logger.info { "Delete a Character" }
 
-    listCharacters()
+    listCharactersdelete()
     if (characterAPI.numberOfCharacters() > 0) {
         //only ask the user to choose the note to delete if notes exist
         val indexToDelete = readNextInt("Enter the index of the character to delete: ")
@@ -149,3 +192,5 @@ fun exitApp(){
 fun listAllSheets() {
     println(characterAPI.listAllSheets())
 }
+
+
