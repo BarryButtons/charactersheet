@@ -6,27 +6,41 @@ import java.util.*
 object ValidateInput {
 
     @JvmStatic
-    fun readValidCategory(prompt: String?): String {
+    fun readValidRace(prompt: String?): String {
         print(prompt)
         var input = Scanner(System.`in`).nextLine()
         do {
-            if (CategoryUtility.isValidCategory(input))
+            if (CategoryUtility.isValidRace(input))
                 return input
             else {
-                print("Invalid category $input.  Please try again: ")
+                print("Invalid Race $input.  Please try again: ")
                 input = Scanner(System.`in`).nextLine()
             }
         } while (true)
     }
 
     @JvmStatic
-    fun readValidPriority(prompt: String?): Int {
-        var input =  readNextInt(prompt)
+    fun readValidClass(prompt: String?): String {
+        print(prompt)
+        var input = Scanner(System.`in`).nextLine()
         do {
-            if (Utilities.validRange(input, 1, 5))
+            if (CategoryUtility.isValidClass(input))
                 return input
             else {
-                print("Invalid priority $input.")
+                print("Invalid Class $input.  Please try again: ")
+                input = Scanner(System.`in`).nextLine()
+            }
+        } while (true)
+    }
+
+    @JvmStatic
+    fun readValidNumber(prompt: String?): Int {
+        var input =  readNextInt(prompt)
+        do {
+            if (Utilities.validRange(input, 1, 5))//needs to be changed to 20
+                return input
+            else {
+                print("Invalid entry $input.")
                 input = readNextInt(prompt)
             }
         } while (true)

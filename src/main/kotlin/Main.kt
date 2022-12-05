@@ -2,10 +2,12 @@ import controllers.characterAPI
 import models.Sheet
 import mu.KotlinLogging
 import util.CategoryUtility
+import util.ValidateInput.readValidClass
+import util.ValidateInput.readValidNumber
 import utils.ScannerInput
 import utils.ScannerInput.readNextInt
 import utils.ScannerInput.readNextLine
-import util.ValidateInput.readValidCategory
+import util.ValidateInput.readValidRace
 import java.lang.System.exit
 
 
@@ -49,15 +51,15 @@ fun runMenu() {
 fun addCharacter(){
     //logger.info { "Create a Characters"}
     val characterName = readNextLine("Character Name:")
-    val characterRace = readValidCategory("Choose Character Race from ${CategoryUtility.categories}:")
-    val characterClass = readNextLine("Choose Character Class:")
-    val characterLevel = readNextInt("Enter Character Level 1-20:")
-    val strength = readNextInt("Enter Character Strength 1-20:")
-    val dexterity = readNextInt("Enter Character Dexterity 1-20:")
-    val constitution = readNextInt("Enter Character Constitution 1-20:")
-    val intelligence =  readNextInt("Enter Character Intelligence 1-20:")
-    val wisdom = readNextInt("Enter Character Wisdom 1-20:")
-    val charisma = readNextInt("Enter Character Charisma 1-20:")
+    val characterRace = readValidRace("Choose Character Race from ${CategoryUtility.races}:")
+    val characterClass = readValidClass("Choose Character Class ${CategoryUtility.classes}:")
+    val characterLevel = readValidNumber("Enter Character Level 1-20:")
+    val strength = readValidNumber("Enter Character Strength 1-20:")
+    val dexterity = readValidNumber("Enter Character Dexterity 1-20:")
+    val constitution = readValidNumber("Enter Character Constitution 1-20:")
+    val intelligence =  readValidNumber("Enter Character Intelligence 1-20:")
+    val wisdom = readValidNumber("Enter Character Wisdom 1-20:")
+    val charisma = readValidNumber("Enter Character Charisma 1-20:")
 
     val isAdded = characterAPI.add(Sheet(characterName, characterRace, characterClass, characterLevel, strength, dexterity, constitution, intelligence, wisdom, charisma))
 

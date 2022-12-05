@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/persistance/JSONSerializer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/persistance/Serializer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/persistance/XMLSerializer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/util/CategoryUtility.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/util/Utilities.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/util/ValidateInput.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2022_15_01_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2022_15_01__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2022_15_04_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2022_15_04__Changes_.xml" beforeDir="false" />
+    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Add validation for &quot;Races&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/Sheet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/Sheet.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/util/CategoryUtility.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/util/CategoryUtility.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/util/ValidateInput.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/util/ValidateInput.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669821239847</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add validation for &quot;Races&quot;">
+      <created>1670265654279</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670265654279</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +124,7 @@
     <MESSAGE value="Add update character" />
     <MESSAGE value="Create CRUD" />
     <MESSAGE value="Add to ReadME" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add to ReadME" />
+    <MESSAGE value="Add validation for &quot;Races&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add validation for &quot;Races&quot;" />
   </component>
 </project>
