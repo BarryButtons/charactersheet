@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Add Tests">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controllers/characterAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controllers/characterAPI.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/persistance/JSONSerializer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/persistance/JSONSerializer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/persistance/Serializer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/persistance/Serializer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/persistance/XMLSerializer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/persistance/XMLSerializer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/util/CategoryUtility.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/util/CategoryUtility.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/controllers/characterAPITest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/controllers/characterAPITest.kt" afterDir="false" />
+    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Add Test for Add Character">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670353623909</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add Test for Add Character">
+      <created>1670355652558</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670355652558</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,6 +147,7 @@
     <MESSAGE value="Change &quot;View Character&quot; options" />
     <MESSAGE value="Make changes to delete and update character views" />
     <MESSAGE value="Add Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Tests" />
+    <MESSAGE value="Add Test for Add Character" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Test for Add Character" />
   </component>
 </project>
