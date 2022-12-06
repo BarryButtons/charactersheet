@@ -17,16 +17,54 @@ private val logger = KotlinLogging.logger {}
 private val characterAPI= characterAPI(XMLSerializer(File("character.xml")))
 
 fun main(args: Array<String>) {
-    runMenu()
+    runStartMenu()
+}
+
+fun startMenu(): Int{
+
+    return readNextInt("""
+          > /        88888    88   88  888   88    88888    888888   88888   888   88   8888       \
+          > \        88   8   88   88  88 8  88   88        88      88   88  88 8  88  88          /
+          > /        88    8  88   88  88  8 88  88   8888  88888   88   88  88  8 88    88        \
+          > \        88   8   88   88  88   888   88   88   88      88   88  88   888      88      /
+          > /        88888      888    88    88    88888    888888   88888   88    88  88888       \
+          > \                                                                                      /
+          > /                                      888                                             \
+          > \                                    88   88                                           /
+          > /                                    88   88                                           \                                    
+          > \                                      888    8                                        /
+          > /                                    88  88 88                                         \
+          > \                                    88   88                                           /                                     
+          > /                                      888  88                                         \
+          > \                                                                                      /
+          > /      88888    88888      888      88888      888     88888  888    88   8888         \                       
+          > \       88   8   88  88    88 88    88         88 88   88   88 88 8   88  88           /
+          > /       88    8  8888     88   88  88   8888  88   88  88   88 88  8  88    88         \
+          > \       88   8   88 88    8888888   88   88   8888888  88   88 88   8 88      88       /
+          > /       88888    88   88  88   88    88888    88   88   88888  88    888  88888        \
+          > \                                                                                      /
+          > /----------------------------------type 1 to start-------------------------------------\
+          >                                       ==>>""".trimMargin(">"))
+}
+
+fun runStartMenu() {
+    do {
+        val option = startMenu()
+        when (option) {
+            1  -> runMenu()
+            0  -> exitApp()
+            else -> println("Invalid option entered: ${option}")
+        }
+    } while (true)
 }
 
 fun mainMenu() : Int {
 
-    return ScannerInput.readNextInt(""" 
+    return readNextInt(""" 
          > -------------------------------------------------------------------------------------------------
          > \                       Character Creator (No of Characters here)                               /
          > /                                                                                               \
-         > -------------------------------------------------------------------------------------------------
+         > -------------------------------------------------------------------------------------------------         
          > \                                          MENU                                                 /
          > /      1)Create Character   2)View Characters   3)Update a Character   4)Delete a Character     \
          > \                                                                                               / 
@@ -113,13 +151,17 @@ fun characterFind(){
     }
 }
 
-/*fun getCharacter(){
- val printSheet = characterFind()
-    if (printSheet != null)
-        println(printSheet.getCharacterSheet)
+
+
+/*fun getCharacter() {
+    characterFind()
+    if (characterAPI.numberOfCharacters() > 0) {
+        //only ask the user to choose the character if they exist
+        val indexToDisplay = readNextInt("Enter the index of the Character to update: ")
+        if (characterAPI.isValidIndex(indexToDisplay))
+        {}}
+
 }*/
-
-
 
 
 fun updateCharacter(){

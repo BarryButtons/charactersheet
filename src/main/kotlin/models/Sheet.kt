@@ -24,17 +24,5 @@ class Sheet (
             >|________________________________________________________________________|
           ===>""".trimMargin(">")
 
-        override fun toString(): String {
-            return "Sheet(characterName='$characterName'," +
-                    "characterClass='$characterClass', " +
-                    "characterRace='$characterRace'," +
-                    "characterLevel='$characterLevel'" +
-                    "strength='$strength'" +
-                    "dexterity='$dexterity'" +
-                    "constitution='$constitution'" +
-                    "intelligence='$intelligence'" +
-                    "wisdom='$wisdom'" +
-                    "charisma=$charisma)"
-        }
 
     }
