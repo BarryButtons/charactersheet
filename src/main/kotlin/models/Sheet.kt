@@ -12,7 +12,7 @@ class Sheet (
     var wisdom: Int,
     var charisma: Int
 ) {
-        fun getCharacterSheet():String =
+        fun getCharacterSheet()=
            """
             >__________________________________________________________________________
             >                            $characterName                             |
@@ -24,5 +24,16 @@ class Sheet (
             >|________________________________________________________________________|
           ===>""".trimMargin(">")
 
-
+    override fun toString(): String {
+        return "Sheet(characterName='$characterName'," +
+                "characterRace='$characterRace' " +
+                "characterClass='$characterClass'" +
+                "characterLevel=$characterLevel " +
+                "strength=$strength " +
+                "dexterity=$dexterity " +
+                "constitution='$constitution' " +
+                "intelligence='$intelligence " +
+                "wisdom='$wisdom " +
+                "charisma='$charisma')"
+    }
     }

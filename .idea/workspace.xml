@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Add Test for Add Character">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Add start Menu">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/Sheet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/Sheet.kt" afterDir="false" />
     </list>
@@ -116,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670355652558</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add start Menu">
+      <created>1670358432517</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670358432517</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,6 +156,7 @@
     <MESSAGE value="Make changes to delete and update character views" />
     <MESSAGE value="Add Tests" />
     <MESSAGE value="Add Test for Add Character" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Test for Add Character" />
+    <MESSAGE value="Add start Menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add start Menu" />
   </component>
 </project>

@@ -157,7 +157,7 @@ fun characterFind(){
     characterFind()
     if (characterAPI.numberOfCharacters() > 0) {
         //only ask the user to choose the character if they exist
-        val indexToDisplay = readNextInt("Enter the index of the Character to update: ")
+        val indexToDisplay = readNextInt("Enter the index of the Character to display: ")
         if (characterAPI.isValidIndex(indexToDisplay))
         {}}
 
