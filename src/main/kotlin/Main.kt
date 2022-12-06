@@ -1,6 +1,7 @@
 import controllers.characterAPI
 import models.Sheet
 import mu.KotlinLogging
+import persistence.XMLSerializer
 import util.CategoryUtility
 import util.ValidateInput.readValidClass
 import util.ValidateInput.readValidNumber
@@ -8,11 +9,12 @@ import utils.ScannerInput
 import utils.ScannerInput.readNextInt
 import utils.ScannerInput.readNextLine
 import util.ValidateInput.readValidRace
+import java.io.File
 import java.lang.System.exit
 
 
 private val logger = KotlinLogging.logger {}
-private val characterAPI= characterAPI()
+private val characterAPI= characterAPI(XMLSerializer(File("character.xml")))
 
 fun main(args: Array<String>) {
     runMenu()
