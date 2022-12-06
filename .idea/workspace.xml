@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Change &quot;View Character&quot; options">
+    <list default="true" id="caf4d729-0cd5-472f-9052-522f925f86d9" name="Changes" comment="Make changes to delete and update character views">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controllers/characterAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controllers/characterAPI.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/Sheet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/Sheet.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/20088160/Desktop/Year4/Software/employee-app-5.0"
+    "last_opened_file_path": "C:/Users/20088160/Desktop/Year4/Software/charactersheet"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -95,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670270398118</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Make changes to delete and update character views">
+      <created>1670273059673</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670273059674</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,6 +134,7 @@
     <MESSAGE value="Add update character" />
     <MESSAGE value="Create CRUD" />
     <MESSAGE value="Change &quot;View Character&quot; options" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change &quot;View Character&quot; options" />
+    <MESSAGE value="Make changes to delete and update character views" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make changes to delete and update character views" />
   </component>
 </project>
