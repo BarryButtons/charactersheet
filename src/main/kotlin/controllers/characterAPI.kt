@@ -1,8 +1,9 @@
 package controllers
 
 import models.Sheet
+import persistence.XMLSerializer
 
-class characterAPI {
+class characterAPI(xmlSerializer: XMLSerializer) {
     private var sheets = ArrayList<Sheet>()
 
     fun add(sheet: Sheet): Boolean {

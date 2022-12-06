@@ -18,7 +18,7 @@ object CategoryUtility {
     }
 
     @JvmStatic
-    val classes = setOf ("Rogue", "Paladin", "Warlock", "Barbarian", "Wizard", "Cleric", "Fighter")  //add more categories in here.
+    val classes = setOf ("Rogue", "Paladin", "Warlock", "Barbarian", "Wizard", "Cleric", "Fighter","Bard")  //add more categories in here.
 
     @JvmStatic
     fun isValidClass(categoryToCheck: String?): Boolean {
