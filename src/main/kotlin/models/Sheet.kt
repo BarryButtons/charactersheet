@@ -1,6 +1,6 @@
 package models
 
-data class Sheet (
+class Sheet (
     var characterName: String,
     var characterRace: String,
     var characterClass: String,
@@ -11,6 +11,30 @@ data class Sheet (
     var intelligence: Int,
     var wisdom: Int,
     var charisma: Int
-)
+) {
+        fun getCharacterSheet():String =
+           """
+            >__________________________________________________________________________
+            >                            $characterName                             |
+            >|________________________________________________________________________|
+            >|            Class:${characterClass}            Race:${characterRace}       Level:${characterLevel}            |
+            >|________________________________________________________________________|
+            >|                              Attributes                                |
+            >|     STR:${strength}     DEX:${dexterity}     CON:${constitution}     INT:${intelligence}     WIS:${wisdom}      CHAR:${charisma}     |
+            >|________________________________________________________________________|
+          ===>""".trimMargin(">")
 
-//is character dead
+        override fun toString(): String {
+            return "Sheet(characterName='$characterName'," +
+                    "characterClass='$characterClass', " +
+                    "characterRace='$characterRace'," +
+                    "characterLevel='$characterLevel'" +
+                    "strength='$strength'" +
+                    "dexterity='$dexterity'" +
+                    "constitution='$constitution'" +
+                    "intelligence='$intelligence'" +
+                    "wisdom='$wisdom'" +
+                    "charisma=$charisma)"
+        }
+
+    }
